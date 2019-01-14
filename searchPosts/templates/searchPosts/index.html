@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}home{% endblock %}</title>
+</head>
+<body>
+<div id="search_posts">
+  <h1 style="text-align: center">欢迎使用本工具</h1>
+  <form method="post" action="{% url 'searchPosts:search' %}">
+    {% csrf_token %}
+    编程语言:<input type="text" name="language">
+    工作城市:<input type="text" name="city">
+    学历:<input type="text" name="xueli">
+    最低工资:<input type="text" name="salary_min">
+    工作经验最低要求:<input type="text" name="exp_min">
+    <button type="submit">查询</button>
+    <br/>
+    <br/>
+  </form>
+  <div id="search_result">
+    <table border="1" style="text-align: center; margin-right: auto; margin-left: auto">
+      {% block table %}{% endblock %}
+    </table>
+  </div>
+</div>
+</body>
+</html>

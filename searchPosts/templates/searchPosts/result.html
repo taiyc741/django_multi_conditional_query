@@ -1,0 +1,36 @@
+{% extends "searchPosts/index.html" %}
+{% block title %}result{% endblock %}
+{% block table %}
+  {% if status == 200 %}
+    <tr>
+        {% for fied in  fieds %}
+          <th>{{ fied }}</th>
+        {% endfor %}
+    </tr>
+  {% endif %}
+  {% if status == 404 %}
+    <h3 style="text-align: center">{{ fieds }}</h3>
+  {% endif %}
+  {% if status == 000 %}
+    <h3 style="text-align: center">{{ fieds }}</h3>
+  {% endif %}
+
+  {% for info in search_info %}
+    <tr>
+      <td>{{ info.language }}</td>
+      <td>{{ info.city }}</td>
+      <td>{{ info.company }}</td>
+      <td>{{ info.scale }}</td>
+      <td>{{ info.xueli }}</td>
+      <td>{{ info.lat }}</td>
+      <td>{{ info.longitude }}</td>
+      <td>{{ info.post }}</td>
+      <td>{{ info.salary }}</td>
+      <td>{{ info.exp }}</td>
+      <td>{{ info.welfare }}</td>
+    </tr>
+  {% endfor %}
+
+
+
+{% endblock %}
